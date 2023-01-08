@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  gh-pages:
+    container_name: knowledge-macenka-gh-page
+    image: nginx:stable-alpine
+    ports:
+      - 80:80
+    volumes:
+      - ./_site:/usr/share/nginx/html
+    restart: unless-stopped
