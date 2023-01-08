@@ -6,7 +6,8 @@ categories: [Scripts-and-Snippets]
 tags: [blogging,markdown,jekyll,chirpy]     # TAG names should always be lowercase
 authors: [jan]
 #pin: true
-comments: true
+comments: false
+render_with_liquid: false
 #mermaid: true
 #math: true
 ---
@@ -62,16 +63,19 @@ Code-Blocks can be used with syntax highlighting like this
     ```
 {: file="path/to/file" }
 ```
-
 ### Liquid Codes
 To use the templating engine use { variable } or {% expression %}
 
-```yaml
+```liquid
 {% link /assets/files/doc.pdf %}
 
 {% link _posts/2016-07-26-name-of-post.md %}
 
 [Link to a file]({% link /assets/files/doc.pdf %})
+
+{% post_url /subdir/2010-07-21-name-of-post %}
+
+[Name of Link]({% post_url 2010-07-21-name-of-post %})
 
 ```
 
@@ -84,6 +88,40 @@ my_variable: footer_company_a.html
 ---
 ```
 
-```jinja
+then in the post refecence them like
+
+```liquid
 {% link {{ page.my_variable }} %}
 ```
+
+or just freely with global variables
+
+```html
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+```
+
+### Videos
+Videos can be directly embeded into the blog like this
+
+```liquid
+{% include embed/{Platform}.html id='{ID}' %}
+```
+
+Where `Platform` is the lowercase of the platform name, and `ID` is the video ID.
+
+The following table shows how to get the two parameters we need in a given video URL, and you can also know the currently supported video platforms.
+
+| **Video URL**                                          | **Platform** | **ID**        |
+|--------------------------------------------------------|--------------|---------------|
+| https://www. **youtube** .com/watch?v= **H-B46URT4mg** | `youtube`    | `H-B46URT4mg` |
+| https://www. **twitch** .tv/videos/ **1634779211**     | `twitch`     | `1634779211`  |
+
+### Further reference
+
+See also [the jekyll-guide on blog posts](https://jekyllrb.com/docs/posts/).

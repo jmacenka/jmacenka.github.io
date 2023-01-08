@@ -6,8 +6,8 @@ categories: [Tutorial]
 tags: [networking,automation,tutorial,netbox]     # TAG names should always be lowercase
 authors: [jan]
 #pin: true
-comments: true
-mermaid: true
+comments: false
+#mermaid: true
 #math: true
 ---
 

@@ -20,11 +20,3 @@ Should you feel even more generous, you can feel free to [send me a <i class="fa
 Best Regards,
 
 [*Jan Macenka*](mailto:jan@macenka.de?subject=Question%20regarding%20knowledge.macenka.de&body=Hi%20Jan%2C%0D%0A%0D%0AI%20have%20the%20following%20question%2Fsuggestion%2Fcomplaint%20regarding%20knowledge.macenka.de%0D%0A%0D%0Axxx%0D%0A%0D%0ABest%20regards%2C%0D%0A%3CYOUR%20NAME%20GOES%20HERE%3E)
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>

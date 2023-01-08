@@ -1,1 +1,12 @@
-
+---
+# tutorial: https://chirpy.cotes.page/posts/write-a-new-post/
+title: <MY VERY LATEST POST THAT STILL NEEDS A TITLE>
+date: 20YY-MM-DD hh:mm:ss +0200
+categories: []
+tags: []     # TAG names should always be lowercase
+authors: [jan]
+#pin: true
+comments: false
+#mermaid: true
+#math: true
+---
