@@ -100,11 +100,12 @@ comments:
   giscus:
     repo: jmacenka/jmacenka.github.io             # <gh-username>/<repo>
     repo_id: R_kgDOIveFZw
-    category: Comments
-    category_id: DIC_kwDODy-1C84CSN7z
-    mapping: pathname          # optional, default to 'pathname'
+    #category: Comments
+    #category_id: DIC_kwDODy-1C84CSN7z
+    category_id: DIC_kwDOIveFZ84CTecr
+    mapping: url          # optional, default to 'pathname'
     input_position: bottom    # optional, default to 'bottom'
-    lang: site.lang             # optional, default to the value of `site.lang`
+    lang: en            # optional, default to the value of `site.lang`
     reactions_enabled: 1 # optional, default to the value of `1`
 
 # Self-hosted static assets, optional › https://github.com/cotes2020/chirpy-static-assets
@@ -153,6 +154,10 @@ defaults:
       path: _drafts
     values:
       comments: false
+  - scope:
+      path: _ideas
+    values:
+      comments: true
   - scope:
       path: ''
       type: tabs             # see `site.collections`
