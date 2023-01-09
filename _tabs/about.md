@@ -4,8 +4,8 @@ icon: fas fa-info-circle
 order: 4
 ---
 
-![Wellcome](https://www.seekpng.com/png/full/4-48714_pics-of-welcome-5380843775-welcome-png.png){: .light w="700" }
-![Wellcome](https://harihutan.id/wp-content/uploads/revslider/welcome.png){: .dark w="700" }
+![Wellcome](/assets/img/banners/welcome-light.png){: .light w="700" }
+![Wellcome](/assets/img/banners/welcome-dark.png){: .dark w="700" }
 # Wellcome to the Knowledge base of Jan Macenka
 
 Here you will find a collection of [Tutorials](/categories/tutorial/), [Descriptions](/categories/descriptions/), [Scripts&Snippets](/categorie/scripts-and-snippets), best practices and more for the realms of IT and IT/OT convergence aswell as home-labing fun.
