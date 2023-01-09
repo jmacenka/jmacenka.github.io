@@ -6,7 +6,7 @@ categories: [Scripts-and-Snippets]
 tags: [blogging,markdown,jekyll,chirpy]     # TAG names should always be lowercase
 authors: [jan]
 #pin: true
-comments: false
+#comments: false
 render_with_liquid: false
 #mermaid: true
 #math: true
@@ -43,6 +43,22 @@ tags: [TAG]     # TAG names should always be lowercase
 #math: true # loads mathematical library
 #mermaid: true # loads a diagramm generating librarie
 ---
+```
+
+### List of all usefull YAML flaggs or variables I found so far
+
+```yaml
+title: string
+date: Timestamp in format TYYYY-MM-DD hh:mm:ss +/-nnnn
+categories: [strings]
+tags: [strings] # TAG names should always be lowercase
+author: string
+authors: [strings]
+pin: bool
+comments: bool
+render_with_liquid: bool
+mermaid: bool
+math: bool
 ```
 
 ### Authors
