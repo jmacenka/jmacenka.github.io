@@ -8,7 +8,7 @@ order: 4
 ![Wellcome](/assets/img/banners/welcome-dark.png){: .dark w="700" }
 # Wellcome to the Knowledge base of Jan Macenka
 
-Here you will find a collection of [Tutorials](/categories/tutorial/), [Descriptions](/categories/descriptions/), [Scripts&Snippets](/categorie/scripts-and-snippets), best practices and more for the realms of IT and IT/OT convergence aswell as home-labing fun.
+Here you will find a collection of [Tutorials](/categories/tutorial/), [Descriptions](/categories/descriptions/), [Scripts&Snippets](/categories/scripts-and-snippets/), best practices and more for the realms of IT and IT/OT convergence aswell as home-labing fun.
 
 For the chance that you do not know me and wonder what Jan micht actually be doing, feel free to [check out my Homepage](https://www.macenka.de) which sould give some ideas.
 
