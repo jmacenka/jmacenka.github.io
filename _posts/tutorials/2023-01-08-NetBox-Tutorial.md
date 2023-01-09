@@ -26,19 +26,74 @@ Since this tool is **much more** than the equivalent of an EXCEL-Spreadsheet wit
 
 To my understanding, this is time well spent as this REALLY is a powerfull tool for networking, automation understanding the basics/fundamentals: the physical layer of digitalisation in general!
 
-# Installation guide
+# Setup guide
 
 ## Prerequisites
 * Have a Linux Server with your package manager of choie, here we are assuming this will be the Aptitude-Package-Manager `apt`
-* 
+* Be able to login via `SSH`, if you are on Windows you will need an additional Tool like [Putty](https://www.putty.org/), macOS and Linux come with essential CLI-Tools preinstalled.
 
-## Setup
-Start by updating your system and installing docker and docker-compose 
+## Installation
+Start by logging in to your Server then updating your system and installing git, docker and docker-compose 
 
 ```shell
 apt update && apt upgrade -y
-apt install docker docker-compose
+apt install git docker docker-compose -y
 ```
+
+best to make a place on your server where the project can live like e.g.
+
+```shell
+mkdir -p ~/apps/netbox
+cd ~/apps/netbox
+```
+
+then clone the repository
+
+```shell
+git clone -b release https://github.com/netbox-community/netbox-docker.git .
+```
+
+with docker-compose it is best practice to have deployment-scripts for different environments like dev/QA/prod.
+
+These are usually controlled by having differend docker-compose.overrides.yaml which are executed when calling `docker-compose up`, if you like you can specify special ones by invoking `docker-compose -f docker-compose.override-dev.yml`.
+
+For now create this one
+
+```shell
+tee docker-compose.override.yml <<EOF
+version: '3.4'
+services:
+  netbox:
+    ports:
+      - 8000:8080
+EOF
+```
+
+then deploy the service
+
+```shell
+docker-compose up -d
+```
+
+netbox utilizes different services such as a PostgreSQL-Database which might take some time to come alive.
+
+If you have not changed anything you should be able to whatch the Service start up by trailing the logs with 
+
+```shell
+docker logs -f netbox-docker_netbox_1
+```
+
+![](/assets/img/screenshots/2023-01-09_00-58_netbox-deployment-logs.png)
+
+After a while you sould be able to access your instance by visiting
+
+[http://localhost:8000](http://localhost:8000) if you installed it on your own system or exchanging `localhost` for the IP of your server.
+
+![](/assets/img/screenshots/2023-01-09_00-58_netbox-dashboard.png)
+
+login with the default credentials `admin / admin` your first action should be changing the admin password and storing it in your Passwortmanager ;-)
+
+Next you should learn what NetBox realy is for which the following Video-Tutorials are a perfect fit.
 
 ## Video-Tutorial-Series
 
@@ -189,6 +244,12 @@ For even more detailed learning, see [these tutorials](https://www.kitsim.com/of
 </details>
 
 For even more detailed learning, see [these tutorials](https://www.kitsim.com/offers/rEe4hykQ/checkout).
+
+## Backups and Restore
+
+In the default setup NetBox uses Docker volumes and does (at least to my knowledge) not come with a backup/restore mechanism out of the box. As a good data-engineer after securing your password, making sure of backups should be one of your next steps ;-)
+
+As a starter, you can review [my branch of the project](https://git.macenka.de/jan/netbox-docker) for which I added [this backup-script](https://git.macenka.de/jan/netbox-docker/src/branch/release/backup_netbox_data_folders.sh).
 
 ## Other Links and ressources
 - [Project Repo](https://github.com/netbox-community/netbox)
