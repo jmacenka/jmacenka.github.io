@@ -141,3 +141,6 @@ The following table shows how to get the two parameters we need in a given video
 ### Further reference
 
 See also [the jekyll-guide on blog posts](https://jekyllrb.com/docs/posts/).
+
+Best regards,
+[_Jan Macenka_](https://www.macenka.de)

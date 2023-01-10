@@ -9,6 +9,7 @@ authors: [jan]
 #comments: false
 #mermaid: true
 #math: true
+highlighter: true
 ---
 
 ![NetBox](/assets/img/logos/netbox.png)
@@ -52,11 +53,11 @@ apt install git docker docker-compose -y
 best to make a place on your server where the project can live like e.g.
 
 ```shell
-mkdir -p ~/apps/netbox
-cd ~/apps/netbox
+mkdir -p ~/apps/netbox-docker
+cd ~/apps/netbox-docker
 ```
 
-then clone the original repository or if you like my fork of Version 2.4.0 (no further updates though) which includes [a backup-script](https://git.macenka.de/jan/netbox-docker/src/branch/release/backup_netbox_data_folders.sh)
+then clone the original repository or if you like my fork of Version 2.4.0 (no further updates though) which includes [a backup-script](https://git.macenka.de/jan/netbox-docker-with-backup/src/branch/release/backup_netbox_data_folders.sh) that you need to manually modify.
 
 ```shell
 # The original repository
@@ -68,11 +69,34 @@ ALTERNATIVELY
 
 ```shell
 # Jans fork of Version 2.4.0 (you might want to check if there are later versions) containing the backup-script
-git clone https://git.macenka.de/jan/netbox-docker .
+git clone https://git.macenka.de/jan/netbox-docker-with-backup .
 ```
-{: file="~/apps/netbox" }
+{: file="~/apps/netbox-docker" }
 
-with docker-compose it is best practice to have deployment-scripts for different environments like dev/QA/prod.
+if you chose this version, dont forget to update the backup-files variables
+
+```shell
+editor ~/apps/netbox-docker/backup_netbox_data_folders.sh
+```
+{: file="~/apps/netbox-docker" }
+
+and register [a CRON-job](https://crontab.guru/#0_2_*_*_0) to run the backup cyclically. This one would run once per week:
+
+```shell
+# Requires SUDO or manual switch to root-user
+sudo (crontab -l && echo "0 2 * * 0 bash $PWD/backup_netbox_data_folders.sh") | crontab -
+```
+
+should this script fail just edit the cronjob manually using `crontab -e`
+
+Also execute the script manually and make sure the backup-files actually end up in your NextCloud. 
+
+> Please also be aware that **this is NOT a failsafe solution!** Also this backup script intentionally only keeps one backup copy on your system in order to not flood your system with to many backups and lock it ub. It is a quick and dirty solution andn you need to understand it and see if you feel comfortable with it!
+{: .prompt-danger }
+
+The final thing to do is deployment for wich we will use [docker-compose](https://docs.docker.com/compose/compose-file/).
+
+With docker-compose it is best practice to have deployment-scripts for different environments like dev/QA/prod.
 
 These are usually controlled by having differend docker-compose.overrides.yaml which are executed when calling `docker-compose up`, if you like you can specify special ones by invoking `docker-compose -f docker-compose.override-dev.yml`.
 
@@ -114,15 +138,25 @@ After a while you sould be able to access your instance by visiting
 
 login with the default credentials `admin / admin` your first action should be changing the admin password and storing it in your Passwortmanager ;-)
 
+## Backups and Restore
+
+In the [installation section](#Installation) we already saw a way for a **simplistic** backup mechanism. As each good systems and data-engineer shold know: "You dont have a functional backup untill you verified that also the restore-job works". With this in mind please make sure that you have an appropriate backup soltuion in place so you can feel save and secure. To me there are only view IT things more scary than losing network-documentation for systems you operate/maintain.
+
+As a starter, you can review [my branch of the project](https://git.macenka.de/jan/netbox-docker) for which I added [this backup-script](https://git.macenka.de/jan/netbox-docker/src/branch/release/backup_netbox_data_folders.sh).
+
 Next you should learn what NetBox realy is for which the following Video-Tutorials are a perfect fit.
 
 ## Video-Tutorial-Series
 
-Best to start with this video:
+There is an excelent video tutorial series by [Jeremy](https://www.youtube.com/@KeepingITSimple) which he also made avaliabe on YouTube. If you find that this is of value to you, please [consider supporting him for his work](https://www.kitsim.com/offers/rEe4hykQ/checkout)!
 
-{% include embed/youtube.html id='jr9Pxx0NkTc' %}
+<details open>
+    <summary>00 What is Netbox?</summary>
 
-For even more detailed learning, see [these tutorials](https://www.kitsim.com/offers/rEe4hykQ/checkout).
+    {% include embed/youtube.html id='jr9Pxx0NkTc' %}
+
+</details>
+
 
 <details>
     <summary>01 Installing NetBox 10 minutes</summary>
@@ -266,11 +300,47 @@ For even more detailed learning, see [these tutorials](https://www.kitsim.com/of
 
 For even more detailed learning, see [these tutorials](https://www.kitsim.com/offers/rEe4hykQ/checkout).
 
-## Backups and Restore
+## Naming conventions and how to input your data
 
-In the default setup NetBox uses Docker volumes and does (at least to my knowledge) not come with a backup/restore mechanism out of the box. As a good data-engineer after securing your password, making sure of backups should be one of your next steps ;-)
+Now that you have a working system, you should also think aboout ways to input your data, especially when working with others. 
 
-As a starter, you can review [my branch of the project](https://git.macenka.de/jan/netbox-docker) for which I added [this backup-script](https://git.macenka.de/jan/netbox-docker/src/branch/release/backup_netbox_data_folders.sh).
+When working with a tool like NetBox there is always more than one way to do things which is fine and even endorsed. However agreeing on a view high level conventions will make our lives much easier down the road if we can slice and dice the data we generaded in a (as much as possible) similar way.
+
+Here are some things that worked well for me
+
+### Naming machines
+We use the convention of naming machines according to their `hostname` wich you can extract by entering the `hostname` command e.g. into an CMD-Terminal session.
+
+Keep the hostname case-sensitive for the machine you want to register.
+
+For MAC-Addresses we use the convention of inputting these as HEX-values with all upper-case letters and `:` as octet-delimiter.
+
+### Networking principles
+When entering IP-Addresses you will be asked to provide the Subnet-Mask in the [CIDR format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) which might be new to the occasional IT-User.
+
+[In this list](https://docs.netgate.com/pfsense/en/latest/network/cidr.html) you can see the mapping between a Subnet-Mask and its CIDR. e.G. `255.255.255.0` equals a `/24` network. If you need even more help, [take a look at this tool](https://www.calculator.net/ip-subnet-calculator.html).
+
+If your IP-Address was `192.168.0.100` with Subnet-Mask of `255.255.255.0` you would input `192.168.0.100/24` in the IP-field. If your Network is bigger it would be even better to plan a [10.x.y.z/8 Class A network](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_addresses), which is inteded for closed networks. As the available IP-Range of a `/8` network has potentially room for 16.777.216 devices, it is best practice to build subnet-ranges e.g. for Databases, Office-Clients or VMs.
+
+### Working with TAGs
+You can [use tags](https://docs.netbox.dev/en/stable/features/customization/#tags) with your components. Generally speaking all fields are filterable or queryable (also via the API).
+
+For example its a good idea to tag the vendor of “stuff” that belongs together e.g. in one machine.
+
+### Tenancy
+NetBox has a great concept where you can have [multiple Tenants](https://docs.netbox.dev/en/stable/models/tenancy/tenant/) in your [Sites](https://docs.netbox.dev/en/stable/models/dcim/site/) and [Locations](https://docs.netbox.dev/en/stable/models/dcim/location/).
+
+Later on this can be used for [access-right-governance](https://docs.netbox.dev/en/stable/administration/permissions/), so access-rule-constructes are possible where in the same dataset each tennant can only review (or other parts of [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)) his/her stuff.
+
+### Dummy Things
+Some times you might not be able to find out more details about the “PC” or other System/Hardware you want to register, for this its best to use a `generic box pc` Template.
+
+If you want to register a network connector or junction-box it also makes sense to register them as a `generic patch box` template.
+
+If you dont have information on some of the non-required fields (even the name field), just leave it blank rather than put in some wrong information. You can always update these values later and even do batch-changes to many objects at once.
+
+### Changes and Tracking&Tracing
+Please be aware that there is [a change-log feature](https://docs.netbox.dev/en/stable/features/change-logging/) in NetBox so each change (also deletions) will be visible to others and at least to the admin!
 
 ## Other Links and ressources
 - [Project Repo](https://github.com/netbox-community/netbox)
@@ -284,3 +354,6 @@ As a starter, you can review [my branch of the project](https://git.macenka.de/j
 - [REST-API Docu](https://demo.netbox.dev/static/docs/rest-api/overview/)
 - [GraphQL-API Docu](https://demo.netbox.dev/static/docs/graphql-api/overview/)
 - [NetBox Docu für VMs und virtuelle Cluster](https://demo.netbox.dev/static/docs/core-functionality/virtualization/)
+
+Best regards,
+[_Jan Macenka_](https://www.macenka.de)
