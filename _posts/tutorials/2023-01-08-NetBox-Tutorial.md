@@ -41,8 +41,6 @@ As of January 2023, I have tested this build with:
 * Debian 11
     * <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> LXC Container under Proxmox => docker-compose threw errors which I gave up debugging after a while
 
-
-
 ## Installation
 Start by logging in to your Server then updating your system and installing git, docker and docker-compose 
 
@@ -58,11 +56,21 @@ mkdir -p ~/apps/netbox
 cd ~/apps/netbox
 ```
 
-then clone the repository
+then clone the original repository or if you like my fork of Version 2.4.0 (no further updates though) which includes [a backup-script](https://git.macenka.de/jan/netbox-docker/src/branch/release/backup_netbox_data_folders.sh)
 
 ```shell
+# The original repository
 git clone -b release https://github.com/netbox-community/netbox-docker.git .
 ```
+{: file="~/apps/netbox" }
+
+ALTERNATIVELY
+
+```shell
+# Jans fork of Version 2.4.0 (you might want to check if there are later versions) containing the backup-script
+git clone https://git.macenka.de/jan/netbox-docker .
+```
+{: file="~/apps/netbox" }
 
 with docker-compose it is best practice to have deployment-scripts for different environments like dev/QA/prod.
 
@@ -79,12 +87,14 @@ services:
       - 8000:8080
 EOF
 ```
+{: file="~/apps/netbox" }
 
 then deploy the service
 
 ```shell
 docker-compose up -d
 ```
+{: file="~/apps/netbox" }
 
 netbox utilizes different services such as a PostgreSQL-Database which might take some time to come alive.
 
