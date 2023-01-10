@@ -32,6 +32,17 @@ To my understanding, this is time well spent as this REALLY is a powerfull tool 
 * Have a Linux Server with your package manager of choie, here we are assuming this will be the Aptitude-Package-Manager `apt`
 * Be able to login via `SSH`, if you are on Windows you will need an additional Tool like [Putty](https://www.putty.org/), macOS and Linux come with essential CLI-Tools preinstalled.
 
+## Tested with
+As of January 2023, I have tested this build with:
+* Ubuntu Server 22.04
+    * <i class="fa fa-check" aria-hidden="true"></i> LXC Container under Proxmox
+    * <i class="fa fa-check" aria-hidden="true"></i> Raspberry Pi 4B
+    * <i class="fa fa-check" aria-hidden="true"></i> VM in Virtualbox
+* Debian 11
+    * <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> LXC Container under Proxmox => docker-compose threw errors which I gave up debugging after a while
+
+
+
 ## Installation
 Start by logging in to your Server then updating your system and installing git, docker and docker-compose 
 
