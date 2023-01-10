@@ -21,7 +21,7 @@ many of us have need to inventory and monitor our shopfloor machine-infrastructu
 
 To give you an entry-point with some tutorials and guidance, I compiled this document/list.
 
-Feel free to use and distribute. Cudos to Jeremy Cioara for his great tutorial series (see next section below). If after some research and experimentation you find your self treassuring the tool [which is OpenSource by the way](https://github.com/netbox-community/netbox/blob/develop/LICENSE.txt) as much as I do, consider supporting [the NetBox project](https://github.com/netbox-community/netbox/issues) or [Jeremy](https://www.kitsim.com/offers/rEe4hykQ/checkout) who is the creator of the video tutorials.
+Feel free to use and distribute. Cudos to [Jeremy Cioara](https://www.youtube.com/@KeepingITSimple/about) for his great tutorial series (see next section below). If after some research and experimentation you find your self treassuring the tool [which is OpenSource by the way](https://github.com/netbox-community/netbox/blob/develop/LICENSE.txt) as much as I do, consider supporting [the NetBox project](https://github.com/netbox-community/netbox/issues) or [Jeremy](https://www.kitsim.com/offers/rEe4hykQ/checkout) who is the creator of the video tutorials.
 
 Since this tool is **much more** than the equivalent of an EXCEL-Spreadsheet with some IP-Addresses, you need to spend some time understanding the Tool and its structure upfront to get into a productive mode ;-)
 
