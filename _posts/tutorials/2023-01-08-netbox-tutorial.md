@@ -43,6 +43,9 @@ As of January 2023, I have tested this build with:
     * <i class="fa fa-exclamation-triangle" aria-hidden="true"></i> LXC Container under Proxmox => docker-compose threw errors which I gave up debugging after a while
 
 ## Installation
+
+### Basic setup
+
 Start by logging in to your Server then updating your system and installing git, docker and docker-compose 
 
 ```shell
@@ -56,6 +59,7 @@ best to make a place on your server where the project can live like e.g.
 mkdir -p ~/apps/netbox-docker
 cd ~/apps/netbox-docker
 ```
+### Load Software
 
 then clone the original repository or if you like my fork of Version 2.4.0 (no further updates though) which includes [a backup-script](https://git.macenka.de/jan/netbox-docker-with-backup/src/branch/release/backup_netbox_data_folders.sh) that you need to manually modify.
 
@@ -72,6 +76,8 @@ ALTERNATIVELY
 git clone https://git.macenka.de/jan/netbox-docker-with-backup .
 ```
 {: file="~/apps/netbox-docker" }
+
+### Configure Backups
 
 if you chose this version, dont forget to update the backup-files variables
 
@@ -91,8 +97,11 @@ should this script fail just edit the cronjob manually using `crontab -e`
 
 Also execute the script manually and make sure the backup-files actually end up in your NextCloud. 
 
+
 > Please also be aware that **this is NOT a failsafe solution!** Also this backup script intentionally only keeps one backup copy on your system in order to not flood your system with to many backups and lock it ub. It is a quick and dirty solution andn you need to understand it and see if you feel comfortable with it!
 {: .prompt-danger }
+
+### Deployment
 
 The final thing to do is deployment for wich we will use [docker-compose](https://docs.docker.com/compose/compose-file/).
 
@@ -136,11 +145,17 @@ After a while you sould be able to access your instance by visiting
 
 ![](/assets/img/screenshots/2023-01-09_00-58_netbox-dashboard.png)
 
-login with the default credentials `admin / admin` your first action should be changing the admin password and storing it in your Passwortmanager ;-)
+login with the default credentials `admin / admin` your first action should be to create a new user with admin priviledges and inactivate the admin user while storing your new credentials in your passwortmanager ;-)
+
+### Plugin Installation
+
+Should you want to install further plugins to netbox, I reccomend you follow [this official guide](https://github.com/netbox-community/netbox-docker/wiki/Using-Netbox-Plugins).
+
+To fit my needs, I wante to use NetBox also for graphical representations of the Networks. This can be achieved with the [netbox-topology-view](https://github.com/mattieserver/netbox-topology-views)-Plugin.
 
 ## Backups and Restore
 
-In the [installation section](#Installation) we already saw a way for a **simplistic** backup mechanism. As each good systems and data-engineer shold know: "You dont have a functional backup untill you verified that also the restore-job works". With this in mind please make sure that you have an appropriate backup soltuion in place so you can feel save and secure. To me there are only view IT things more scary than losing network-documentation for systems you operate/maintain.
+In the [installation section](#configure-backups) we already saw a way for a **simplistic** backup mechanism. As each good systems and data-engineer shold know: "You dont have a functional backup untill you verified that also the restore-job works". With this in mind please make sure that you have an appropriate backup soltuion in place so you can feel save and secure. To me there are only view IT things more scary than losing network-documentation for systems you operate/maintain.
 
 As a starter, you can review [my branch of the project](https://git.macenka.de/jan/netbox-docker) for which I added [this backup-script](https://git.macenka.de/jan/netbox-docker/src/branch/release/backup_netbox_data_folders.sh).
 
