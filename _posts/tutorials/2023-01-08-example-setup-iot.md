@@ -15,9 +15,9 @@ authors: [jan]
 <!-- ![](https://cloud.macenka.de/core/preview?fileId=468270&x=1920&y=1080&a=true) -->
 # IoT Example Setup with Node-Red + InfluxDB + Grafana alongside automated CD pipeline utilizing Ansible + terraform
 
-Dear fellow digitalization Colleagues,
+Dear fellow digitalization colleagues,
 
-when dealing with digitalization in the sense of IoT in an industrial setup, you probably at some point come across the [Node-Red](https://nodered.org/) / [InfulxDB](https://www.influxdata.com/) / [Grafana](https://www.influxdata.com/) setup as of 2023.
+when dealing with digitalization in the sense of IoT in an industrial environment, you probably at some point come across the [Node-Red](https://nodered.org/) / [InfulxDB](https://www.influxdata.com/) / [Grafana](https://www.influxdata.com/) setup. At least this was the case for me as of 2022.
 
 I did so as well and will describe to you my journey together with some added code and snippets for building deployment pipelines that you can take as a starting point for your journey.
 
