@@ -99,6 +99,18 @@ mkdir -p ~/apps/example-setup-iot
 cd ~/apps/example-setup-iot
 ```
 
+Install Ansible by following this workflow:
+
+```shell
+# Update and install python3 and pip
+sudo apt update
+sudo apt install python3 python3-pip -y
+# Install and upgrade ansible
+python3 -m pip install --user ansible
+python3 -m pip install --upgrade --user ansible
+```
+{: file="~/apps/example-setup-iot"}
+
 To install terraform according to the [official documentation](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) like this:
 
 Ensure that your system is up to date, and you have the gnupg, software-properties-common, and curl packages installed. You will use these packages to verify HashiCorp's GPG signature, and install HashiCorp's Debian package repository.
