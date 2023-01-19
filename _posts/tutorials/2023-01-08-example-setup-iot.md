@@ -242,7 +242,7 @@ As described the deployment will not do a 100% automated deployment and intentio
 
 Get the public IP (or private IP if you went another way) of the VM/Resource you created on your Cloud-Platform and visit the `http://<YOUR IP Address>:1800` endpoint to check your Node-Red instance as well as the `http://<YOUR IP Address>:3000` for Grafana.
 
-> Please note that you are shipping your login credentials over an **unencrypted HTTP** connection which IS A DEFINITE NO-GO FOR PRODUCTION and **only acceptable for demonstration purposes**.
+> Please note that while logging in you are shipping your login credentials over an **unencrypted HTTP** connection which is a definite NO-GO for any production environment and **only acceptable for demonstration purposes**.
 {: .prompt-danger }
 
 ### Guided tour wanted?
