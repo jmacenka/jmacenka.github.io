@@ -359,6 +359,9 @@ If you don't have information on some of the non-required fields (even the name 
 Please be aware that there is [a change-log feature](https://docs.netbox.dev/en/stable/features/change-logging/) in NetBox so each change (also deletions) will be visible to others and at least to the admin!
 
 # What to do next?
+* Check that your admin-user credentials are safe and secure
+* Check that there are no vulnerable API-Keys open in your system, as there is a default-one for the admin-user
+* Make sure, you have a backup system in place
 
 # Links and references
 - [Project Repo](https://github.com/netbox-community/netbox)
@@ -374,4 +377,5 @@ Please be aware that there is [a change-log feature](https://docs.netbox.dev/en/
 - [NetBox Docu für VMs und virtual Cluster](https://demo.netbox.dev/static/docs/core-functionality/virtualization/)
 
 Best regards,
+
 [_Jan Macenka_](https://www.macenka.de)
