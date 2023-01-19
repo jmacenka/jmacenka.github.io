@@ -11,7 +11,6 @@ authors: [jan]
 #math: true
 ---
 
-![](https://ibm.github.io/cloud-enterprise-examples/static/ced342e4102a26420170f80f60846589/1ec2b/IaC-Ansible_Design_1.png)
 ![](https://cloud.macenka.de/core/preview?fileId=468270&x=1920&y=1080&a=true)
 # IoT Example Setup with Node-Red + InfluxDB + Grafana alongside automated CD pipeline utilizing Ansible + terraform
 
