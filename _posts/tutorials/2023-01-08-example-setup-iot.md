@@ -244,6 +244,10 @@ Get the public IP (or private IP if you went another way) of the VM/Resource you
 > Please note that you are shipping your login credentials over an **unencrypted HTTP** connection which IS A DEFINITE NO-GO FOR PRODUCTION and **only acceptable for demonstration purposes**.
 {: .prompt-danger }
 
+### Guided tour wanted?
+
+Should you be interested in a more guided tour through this Setup, [shoot me an Email](mailto:jan@macenka.de?subject=Requesting%20guided%20tour%20for%20the%20example-setup-iot&body=Dear%20Jan%2C%0D%0A%0D%0AI%20found%20your%20%22example-setup-iot%22%20repository%20and%20tutorial%20and%20would%20love%20to%20get%20in%20contact%20with%20you%20to%20receive%20a%20guided%20tour.%0D%0A%0D%0ACould%20you%20please%20contact%20me%20as%20follows%3A%0D%0A%0D%0A%3C%20YOUR%20CONTACT%20DETAILS%20GO%20HERE%20%3E%0D%0A%0D%0ARegards%2C%0D%0A%3CYOUR%20NAME%3E). I can show to you how you can ingest Sensor-Data and configure SMS-alerts based on dynamic criteria as well as how to inspect and work with your collected data.
+
 ### Clean up and tear down
 
 After you are done with experimenting the Web-Services, destroy the commissioned machines again with the command `terraform destroy -auto-approve` which will destroy all the resources defined in the projects terraform-scripts after you confirmed the action with your API Token again:
