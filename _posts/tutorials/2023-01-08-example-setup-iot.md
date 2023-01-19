@@ -75,7 +75,7 @@ As of January 2023, I have tested this build with:
     * <i class="fa fa-check" aria-hidden="true"></i> VM in [Virtualbox](https://www.virtualbox.org/), [ESXi](https://www.vmware.com/de/products/esxi-and-esx.html) and [Proxmox](https://www.proxmox.com/de/) (without CD-pipeline)
     * <i class="fa fa-check" aria-hidden="true"></i> DigitalOcean [Droplet](https://www.digitalocean.com/products/droplets)
 
-The setup is very table and the Docker-files are all multi-arch so even running them on top a non x86 machine should work out of the box. Should you encounter problems, feel free to comment below.
+The setup is very stable and the Docker-files are all multi-arch so even running them on top a non x86 machine should work out of the box. Should you encounter problems, feel free to comment below.
 
 ## Installation
 
