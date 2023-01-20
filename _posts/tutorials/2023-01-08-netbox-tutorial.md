@@ -316,6 +316,22 @@ There is an excellent video tutorial series by [Jeremy](https://www.youtube.com/
 
 For even more detailed learning, see [these tutorials](https://www.kitsim.com/offers/rEe4hykQ/checkout).
 
+Some additional Videos for content that was not covered in the tutorials above:
+
+<details>
+    <summary>Introduction to Virtualization, Containers and Kubernetes</summary>
+
+    {% include embed/youtube.html id='C0utPcvoTtA' %}
+
+</details>
+
+<details>
+    <summary>Virtual Machines in NetBox</summary>
+
+    {% include embed/youtube.html id='D5iDdjZMUeo' %}
+
+</details>
+
 ## Naming conventions and how to input your data
 
 Now that you have a working system, you should also think about ways to input your data, especially when working with others. 
