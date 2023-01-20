@@ -154,6 +154,8 @@ Should you want to install further plugins to netbox, I recommend you follow [th
 
 To fit my needs, I want to use NetBox also for graphical representations of the Networks. This can be achieved with the [netbox-topology-view](https://github.com/mattieserver/netbox-topology-views)-Plugin.
 
+You can find a curated list of available plugins here: [https://github.com/netbox-community/netbox/wiki/Plugins#plugins-list](https://github.com/netbox-community/netbox/wiki/Plugins#plugins-list)
+
 ## Backups and Restore
 
 In the [installation section](#configure-backups) we already saw a way for a **simplistic** backup mechanism. As each good systems and data-engineer should know: "You don't have a functional backup until you verified that also the restore-job works". With this in mind please make sure that you have an appropriate backup solution in place so you can feel save and secure. To me there are only view IT things more scary than losing network-documentation for systems you operate/maintain.

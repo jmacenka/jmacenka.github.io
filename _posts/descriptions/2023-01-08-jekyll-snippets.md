@@ -1,7 +1,7 @@
 ---
 # tutorial: https://chirpy.cotes.page/posts/write-a-new-post/
 title: Jekyll Snippets
-date: 2023-01-08 21:41:00 +0200
+date: 2023-01-07 21:41:00 +0200
 categories: [Scripts-and-Snippets]
 tags: [blogging,markdown,jekyll,chirpy]     # TAG names should always be lowercase
 authors: [jan]
