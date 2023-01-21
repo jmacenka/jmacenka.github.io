@@ -5,6 +5,7 @@ date: 20YY-MM-DD hh:mm:ss +0200
 categories: []
 tags: []     # TAG names should always be lowercase
 authors: [jan]
+published: false
 #pin: true
 comments: false
 #mermaid: true
