@@ -1,10 +1,11 @@
 ---
 # tutorial: https://chirpy.cotes.page/posts/write-a-new-post/
 title: How to setup Guacamole remote access in a secure way
-date: 2025-01-20 14:33:00 +0200
+date: 2023-01-20 14:33:00 +0200
 categories: [Descriptions]
 tags: [vnc,remote-access,security,totp]     # TAG names should always be lowercase
 authors: [jan]
+published: false
 #pin: true
 #comments: false
 #mermaid: true
