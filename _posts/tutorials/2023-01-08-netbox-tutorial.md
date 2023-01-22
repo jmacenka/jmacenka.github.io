@@ -71,7 +71,7 @@ then in you new shell session try:
 docker run hello-world
 ```
 
-if you get an error message, restart your system and execute the commands again.
+if you get an error message, restart your system and execute the last command again. In the case it does not work (maybe the behaviour is changed in the future which breaks the here described workflow), you need to debug your Docker installation until you can execute commands successfully.
 
 Continuing with the installation its best to make a place on your server where the project can live like e.g.
 
