@@ -49,11 +49,31 @@ As of January 2023, I have tested this build with:
 Start by logging in to your Server then updating your system and installing git, docker and docker-compose. I am assuming that your system provides a SUDO privilege tool, you can also switch to the root user and omit the `sudo` part of the commands:
 
 ```shell
-sudo apt update && apt upgrade -y
+# Update your system
+sudo apt update && sudo apt upgrade -y
+# Install necessary dependencies
 sudo apt install git docker docker-compose -y
 ```
 
-best to make a place on your server where the project can live like e.g.
+then you need to add your current user to the docker-group then exit and start a new shell-session or even may need to restart your system for this to take effect.
+
+```shell
+# Add your logged in user ot the docker-group
+sudo usermod -aG docker $USER
+# Then start a new shell session and check if you can access docker
+exit 0
+```
+
+then in you new shell session try:
+
+```shell
+# Try to execute a docker-command to see if you can connect to the daemon
+docker run hello-world
+```
+
+if you get an error message, restart your system and execute the commands again.
+
+Continuing with the installation its best to make a place on your server where the project can live like e.g.
 
 ```shell
 mkdir -p ~/apps/netbox-docker
