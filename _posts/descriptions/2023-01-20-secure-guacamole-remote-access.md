@@ -79,7 +79,7 @@ sshd : ALL : deny
 
 The above entry will allow ssh access from localhost, the 192.168.0.x subnet, the single IP address 99.151.250.7, and mydomain.net (assuming mydomain.net has a ptr record in place to facilitate reverse lookup). All other IP addresses will be denied access to sshd.
 
-To connect via VNC to the Machines (if you need to use a GUI interface), you can install TightVNC
+To connect via VNC to the Machines (if you need to use a GUI interface), you can [install TightVNC](https://serverspace.io/support/help/install-tightvnc-server-on-ubuntu-20-04/)
 
 ```shell
 sudo apt install xfce4 xfce4-goodies

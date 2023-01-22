@@ -104,7 +104,7 @@ Install Ansible by following this workflow:
 
 ```shell
 # Update and install python3 and pip
-sudo apt update
+sudo apt update && sudo apt upgrade -y
 sudo apt install python3 python3-pip -y
 # Install and upgrade ansible
 python3 -m pip install --user ansible
