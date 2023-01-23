@@ -68,7 +68,7 @@ then in you new shell session try:
 
 ```shell
 # Try to execute a docker-command to see if you can connect to the daemon
-docker run hello-world
+docker run --rm hello-world
 ```
 
 if you get an error message, restart your system and execute the last command again. In the case it does not work (maybe the behaviour is changed in the future which breaks the here described workflow), you need to debug your Docker installation until you can execute commands successfully.
@@ -309,7 +309,7 @@ There is an excellent video tutorial series by [Jeremy](https://www.youtube.com/
 <details>
     <summary>17 IPAM the engineers way</summary>
 
-    {% include embed/youtube.html id='foDVFjjKFgQfoDVFjjKFgQ' %}
+    {% include embed/youtube.html id='foDVFjjKFgQ' %}
 
 </details>
 
