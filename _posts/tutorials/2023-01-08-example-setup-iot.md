@@ -17,7 +17,7 @@ authors: [jan]
 
 Dear fellow digitalization colleagues,
 
-when dealing with digitalization in the sense of IoT in an industrial environment, you probably at some point come across the [Node-Red](https://nodered.org/) / [InfulxDB](https://www.influxdata.com/) / [Grafana](https://www.influxdata.com/) setup. At least this was the case for me as of 2022.
+when dealing with digitalization in the sense of IoT in an industrial environment, you probably at some point come across the [MQTT](https://mqtt.org/) / [InfulxDB](https://www.influxdata.com/) / [Node-Red](https://nodered.org/) / [Grafana](https://www.influxdata.com/) setup which is sometimes refered to as the [MING-Stack](https://forums.balena.io/t/ming-an-iot-sensor-stack-mosquitto-influxdb-nodered-grafana/36540). At least this was the case for me as of 2022.
 
 I did so as well and will describe to you my journey together with some added code and snippets for building deployment pipelines that you can take as a starting point for your journey.
 
