@@ -105,24 +105,6 @@ Set-Item WSMan:\\localhost\\Shell\\MaxMemoryPerShellMB 1024
 Set-Item WSMan:\\localhost\\Plugin\\Microsoft.PowerShell\\Quotas\\MaxMemoryPerShellMB 1024
 ```
 
-## 8. Ansible Connection Settings
-
-On the Ansible machine, set up the connection details:
-
-```ini
-[windows]
-<YOUR WINDOWS MACHINES IP>
-
-[windows:vars]
-ansible_user=<YOUR ADMINISTRATOR ACCOUNT NAME>
-ansible_password=<YOURU ADMINISTRATOR ACCOUNT PW>
-ansible_connection=winrm
-ansible_port=5985
-ansible_winrm_transport=basic
-ansible_winrm_scheme=http
-ansible_winrm_server_cert_validation=ignore
-```
-
 > 🚫 **Note**: The `ansible_winrm_server_cert_validation=ignore` setting is for bypassing certificate validation. It's for testing purposes only.
 
 With these steps completed, your Windows 10 machine should be ready to be managed by Ansible. Always prioritize security when transitioning from a test to a production environment.
@@ -170,13 +152,13 @@ Your `inventory.ini` file should look as follows:
 
 ```ini
 [win10]
-<YOUR MACHIENS IP>
-<CAN BE MORE THAN ONE>
+<YOUR_MACHIENS_IP>
+<CAN_BE_MORE_THAN_ONE>
 
 [win10:vars]
 ansible_connection=winrm
 ansible_port=5985
-ansible_winrm_transport=ntlm
+ansible_winrm_transport=basic
 ansible_winrm_scheme=http
 ansible_winrm_server_cert_validation=ignore
 ```
@@ -323,6 +305,7 @@ Finally execute the `ansible-playbook` with this command:
 ```bash
 ansible-playbook -i inventory.ini playbook-setup-win10.yml --ask-vault-pass
 ```
+{: file="./ansible-win10-setup/"}
 
 This will prompt you for the vault password you created earlier. Enter it and the playbook will run.
 Afterwards you should have a fully configured Windows 10 machine. You can now use this machine as a template for your future Windows 10 VMs.
