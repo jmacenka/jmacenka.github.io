@@ -111,26 +111,19 @@ On the Ansible machine, set up the connection details:
 
 ```ini
 [windows]
-your_windows_host_name_or_ip
+<YOUR WINDOWS MACHINES IP>
 
 [windows:vars]
-ansible_user=Administrator
-ansible_password=YourPassword
+ansible_user=<YOUR ADMINISTRATOR ACCOUNT NAME>
+ansible_password=<YOURU ADMINISTRATOR ACCOUNT PW>
 ansible_connection=winrm
+ansible_port=5985
+ansible_winrm_transport=basic
+ansible_winrm_scheme=http
 ansible_winrm_server_cert_validation=ignore
 ```
 
 > 🚫 **Note**: The `ansible_winrm_server_cert_validation=ignore` setting is for bypassing certificate validation. It's for testing purposes only.
-
-## 9. Python Dependencies
-
-Ensure that the necessary Python package is installed on the Ansible machine:
-
-```bash
-pip install pywinrm
-```
-
----
 
 With these steps completed, your Windows 10 machine should be ready to be managed by Ansible. Always prioritize security when transitioning from a test to a production environment.
 
@@ -318,6 +311,12 @@ and fill in this content:
 {: file="./ansible-win10-setup/playbook-setup-win10.yml"}
 
 ## Execute the script
+
+Ensure that the necessary Python package is installed to connect via WinRM from the Ansible machine:
+
+```bash
+pip install pywinrm
+```
 
 Finally execute the `ansible-playbook` with this command:
 
