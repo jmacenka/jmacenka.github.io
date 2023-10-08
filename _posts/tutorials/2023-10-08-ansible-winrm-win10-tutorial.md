@@ -193,6 +193,7 @@ touch roles/windows-user/tasks/main.yml
 
 and fill in this content:
 
+{% raw %}
 ```yaml
 ---
 - name: Create a new user
@@ -275,6 +276,7 @@ touch playbook-setup-win10.yml
 
 and fill in this content:
 
+{% raw %}
 ```yaml
 ---
 - hosts: win10
