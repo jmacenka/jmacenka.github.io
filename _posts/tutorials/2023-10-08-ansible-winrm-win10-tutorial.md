@@ -202,6 +202,7 @@ and fill in this content:
     password: "{{ win_password }}"
     state: present
 ```
+{% endraw %}
 {: file="./ansible-win10-setup/roles/windows-user/tasks/main.yml"}
 
 ## 4. windows-update role
@@ -292,6 +293,7 @@ and fill in this content:
     - tool-installation
     - browsers
 ```
+{% endraw %}
 {: file="./ansible-win10-setup/playbook-setup-win10.yml"}
 
 ## Execute the script
