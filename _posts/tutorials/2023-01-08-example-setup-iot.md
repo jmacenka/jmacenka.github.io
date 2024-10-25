@@ -33,7 +33,7 @@ Here is a slide-show with some introduction on the utilized technologies and the
 .responsive-wrap iframe{ max-width: 100%;}
 </style>
 <div class="responsive-wrap">
-<iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRNVSovbgHTohUFMsTmB-OroEyt9rg9oMMiyY_W_X6sJM1ZMNPBVd9kdJb7a66l7V--Iiw4kPHUmeYx/embed?start=false&loop=true&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+<iframe src="https://docs.google.com/presentation/d/1i8PHt4DJcksrULs_LGcOQLSOkEoK9P1on1qUvryFoU8/embed?start=false&loop=true&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 </div>
 
 Please note that:
