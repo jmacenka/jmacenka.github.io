@@ -1,6 +1,6 @@
 ---
 title: Use Ventoy on any Windows System
-date: 2024-10-30 20:00:00 +0200
+date: 2024-10-29 20:00:00 +0200
 categories: [Tutorials]
 tags: [ventoy,operating-system,os,infrastructure]
 authors: [jan]
