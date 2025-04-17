@@ -4,7 +4,7 @@ date: 2024-11-18 10:00:00 +0200
 categories: [Tutorials]
 tags: [bitcoin,development,hd-wallet,coding]
 authors: [jan]
-published: true
+published: false
 #pin: true
 #comments: false
 mermaid: true
